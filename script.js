@@ -5,7 +5,6 @@ const searchPhone = () => {
     // Clear input field
     searchField.value = '';
     // load phones
-    document.getElementById('error-msg1').classList.add('d-none')
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
         .then(res => res.json())
@@ -21,13 +20,11 @@ const displayPhones = (phones) => {
 
     // error handling
     if (phones.length == 0) {
-        document.getElementById('error-msg2').classList.remove('d-none')
+        document.getElementById('error-msg').classList.remove('d-none')
     }
     // display phones
     phones.forEach(phone => {
-
-        document.getElementById('error-msg1').classList.add('d-none')
-        document.getElementById('error-msg2').classList.add('d-none')
+        document.getElementById('error-msg').classList.add('d-none')
 
         const div = document.createElement('div');
         div.classList.add('col');
@@ -54,7 +51,6 @@ const loadDetails = phoneId => {
 
 // Display phone details
 const displayDetails = phone => {
-    console.log(phone)
     const detailsContainer = document.getElementById('details-container')
     // Clear previous details result
     detailsContainer.textContent = '';
@@ -73,19 +69,22 @@ const displayDetails = phone => {
                         <p class="card-text">Memory: ${phone.mainFeatures.memory}</p>
                         <p class="card-text">Storage: ${phone.mainFeatures.storage}</p>
                         <h4 class="card-text">Sensors:</h4>
-                        <li class="card-text">${phone.mainFeatures.sensors[0]}</li>
-                        <li class="card-text">${phone.mainFeatures.sensors[1]}</li>
-                        <li class="card-text">${phone.mainFeatures.sensors[2]}</li>
-                        <li class="card-text">${phone.mainFeatures.sensors[3]}</li>
-                        <li class="card-text">${phone.mainFeatures.sensors[4]}</li>
+                        <p class="card-text">${phone.mainFeatures.sensors[0] ? phone.mainFeatures.sensors[0] : ''}</p>
+                        <p class="card-text">${phone.mainFeatures.sensors[1] ? phone.mainFeatures.sensors[1] : ''}</p>
+                        <p class="card-text">${phone.mainFeatures.sensors[2] ? phone.mainFeatures.sensors[2] : ''}</p>
+                        <p class="card-text">${phone.mainFeatures.sensors[3] ? phone.mainFeatures.sensors[3] : ''}</p>
+                        <p class="card-text">${phone.mainFeatures.sensors[4] ? phone.mainFeatures.sensors[4] : ''}</p>
+                        <p class="card-text">${phone.mainFeatures.sensors[5] ? phone.mainFeatures.sensors[5] : ''}</p>
+                        <p class="card-text">${phone.mainFeatures.sensors[6] ? phone.mainFeatures.sensors[6] : ''}</p>
+                        <p class="card-text">${phone.mainFeatures.sensors[7] ? phone.mainFeatures.sensors[7] : ''}</p>
                          <br>
                         <h4 class="card-text">Others:</h4>
-                        <p class="card-text">Bluetooth: ${phone.others.Bluetooth}</p>
-                        <p class="card-text">GPS: ${phone.others.GPS}</p>
-                        <p class="card-text">NFC: ${phone.others.NFC}</p>
-                        <p class="card-text">Radio: ${phone.others.Radio}</p>
-                        <p class="card-text">USB: ${phone.others.USB}</p>
-                        <p class="card-text">WLAN: ${phone.others.WLAN}</p>
+                        <p class="card-text">Bluetooth: ${phone.others.Bluetooth ? phone.others.Bluetooth : 'Not Available'}</p>
+                        <p class="card-text">GPS: ${phone.others.GPS ? phone.others.GPS : 'Not Available'}</p>
+                        <p class="card-text">NFC: ${phone.others.NFC ? phone.others.NFC : 'Not Available'}</p>
+                        <p class="card-text">Radio: ${phone.others.Radio ? phone.others.Radio : 'Not Available'}</p>
+                        <p class="card-text">USB: ${phone.others.USB ? phone.others.USB : 'Not Available'}</p>
+                        <p class="card-text">WLAN: ${phone.others.WLAN ? phone.others.WLAN : 'Not Available'}</p>
                     </div>
                 </div>
     `
