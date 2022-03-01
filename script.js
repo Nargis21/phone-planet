@@ -4,19 +4,14 @@ const searchPhone = () => {
     const searchText = searchField.value;
     // Clear input field
     searchField.value = '';
-    // Error handling
-    if (searchText == '') {
-        document.getElementById('error-msg1').classList.remove('d-none')
-    }
     // load phones
-    else {
-        document.getElementById('error-msg1').classList.add('d-none')
-        const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => displayPhones(data.data.slice(0, 20)))
-    }
+    document.getElementById('error-msg1').classList.add('d-none')
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayPhones(data.data.slice(0, 20)))
 }
+
 // display search input
 const displayPhones = (phones) => {
     const phoneContainer = document.getElementById('phone-container');

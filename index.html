@@ -18,26 +18,32 @@
 </head>
 
 <body>
-    <h1 class="text-center m-4"><span class="text-primary">Phone</span> Planet</h1>
+    <!-- Header section -->
+    <header>
+        <h1 class="text-center m-4"><span class="text-primary">Phone</span>Zone</h1>
+    </header>
 
-    <div class="input-group mb-3 w-50 m-auto">
-        <input id="input-field" type="text" class="form-control" placeholder="Search phone"
-            aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="searchPhone()" id="search-btn" class="btn btn-outline-primary" type="button">Search</button>
-    </div>
-
-    <p id="error-msg1" class="text-danger text-center d-none">Please find Something</p>
-    <p id="error-msg2" class="text-danger text-center d-none">No Result Found</p>
-
-    <div class="d-lg-flex justify-content-lg-center">
-        <div id="details-container" class="row row-cols-1  g-4 m-4 ">
+    <main>
+        <!-- Input section -->
+        <div class="input-group mb-3 w-50 m-auto">
+            <input id="input-field" type="text" class="form-control" placeholder="Search phone"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchPhone()" id="search-btn" class="btn btn-outline-primary"
+                type="button">Search</button>
         </div>
-    </div>
+        <!-- Error messages -->
+        <p id="error-msg1" class="text-danger text-center d-none">Please find Something</p>
+        <p id="error-msg2" class="text-danger text-center d-none">No Result Found</p>
+        <!-- details section -->
+        <div class="d-lg-flex justify-content-lg-center">
+            <div id="details-container" class="row row-cols-1  g-4 m-4 ">
+            </div>
+        </div>
+        <!-- search result section -->
+        <div id="phone-container" class="row row-cols-1 row-cols-md-3 g-4 m-4">
+        </div>
 
-
-    <div id="phone-container" class="row row-cols-1 row-cols-md-3 g-4 m-4">
-    </div>
-
+    </main>
 
     <!-- Bootstrap javascript plugin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
