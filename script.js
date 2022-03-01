@@ -11,8 +11,9 @@ const searchPhone = () => {
         .then(data => displayPhones(data.data.slice(0, 20)))
 }
 
-// display search input
+// display search result
 const displayPhones = (phones) => {
+    console.log(phones)
     const phoneContainer = document.getElementById('phone-container');
     // Clear previous result
     phoneContainer.textContent = '';
@@ -68,7 +69,9 @@ const displayDetails = phone => {
                         <p class="card-text">Display Size: ${phone.mainFeatures.displaySize}</p>
                         <p class="card-text">Memory: ${phone.mainFeatures.memory}</p>
                         <p class="card-text">Storage: ${phone.mainFeatures.storage}</p>
-                        <h4 class="card-text">Sensors:</h4>
+
+
+                        <h4 class="card-text">Sensors: </h4>
                         <p class="card-text">${phone.mainFeatures.sensors[0] ? phone.mainFeatures.sensors[0] : ''}</p>
                         <p class="card-text">${phone.mainFeatures.sensors[1] ? phone.mainFeatures.sensors[1] : ''}</p>
                         <p class="card-text">${phone.mainFeatures.sensors[2] ? phone.mainFeatures.sensors[2] : ''}</p>
@@ -77,18 +80,19 @@ const displayDetails = phone => {
                         <p class="card-text">${phone.mainFeatures.sensors[5] ? phone.mainFeatures.sensors[5] : ''}</p>
                         <p class="card-text">${phone.mainFeatures.sensors[6] ? phone.mainFeatures.sensors[6] : ''}</p>
                         <p class="card-text">${phone.mainFeatures.sensors[7] ? phone.mainFeatures.sensors[7] : ''}</p>
-                         <br>
-                        <h4 class="card-text">Others:</h4>
-                        <p class="card-text">Bluetooth: ${phone.others.Bluetooth ? phone.others.Bluetooth : 'Not Available'}</p>
-                        <p class="card-text">GPS: ${phone.others.GPS ? phone.others.GPS : 'Not Available'}</p>
-                        <p class="card-text">NFC: ${phone.others.NFC ? phone.others.NFC : 'Not Available'}</p>
-                        <p class="card-text">Radio: ${phone.others.Radio ? phone.others.Radio : 'Not Available'}</p>
-                        <p class="card-text">USB: ${phone.others.USB ? phone.others.USB : 'Not Available'}</p>
-                        <p class="card-text">WLAN: ${phone.others.WLAN ? phone.others.WLAN : 'Not Available'}</p>
+
+
+                        <h4 class="card-text">Other Features:</h4>
+                        <p class="card-text">Bluetooth: ${phone.others?.Bluetooth ? phone.others.Bluetooth : 'Not Available'}</p>
+                        <p class="card-text">GPS: ${phone.others?.GPS ? phone.others.GPS : 'Not Available'}</p>
+                        <p class="card-text">NFC: ${phone.others?.NFC ? phone.others.NFC : 'Not Available'}</p>
+                        <p class="card-text">Radio: ${phone.others?.Radio ? phone.others.Radio : 'Not Available'}</p>
+                        <p class="card-text">USB: ${phone.others?.USB ? phone.others.USB : 'Not Available'}</p>
+                        <p class="card-text">WLAN: ${phone.others?.WLAN ? phone.others.WLAN : 'Not Available'}</p> 
+                        
                     </div>
                 </div>
     `
-
     detailsContainer.appendChild(detailsBox);
-
 }
+
