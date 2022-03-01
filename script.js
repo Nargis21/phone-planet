@@ -20,8 +20,10 @@ const searchPhone = () => {
 // display search input
 const displayPhones = (phones) => {
     const phoneContainer = document.getElementById('phone-container');
-    // Clear previous search result
+    // Clear previous result
     phoneContainer.textContent = '';
+    document.getElementById('details-container').textContent = '';
+
     // error handling
     if (phones.length == 0) {
         document.getElementById('error-msg2').classList.remove('d-none')
@@ -47,6 +49,7 @@ const displayPhones = (phones) => {
         phoneContainer.appendChild(div)
     })
 }
+// Load phone details by phone id
 const loadDetails = phoneId => {
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`
     fetch(url)
@@ -54,17 +57,22 @@ const loadDetails = phoneId => {
         .then(data => displayDetails(data.data))
 }
 
+// Display phone details
 const displayDetails = phone => {
     console.log(phone)
     const detailsContainer = document.getElementById('details-container')
-    detailsContainer.textContent = ''
+    // Clear previous details result
+    detailsContainer.textContent = '';
+
     const detailsBox = document.createElement('div');
     detailsBox.classList.add('col');
     detailsBox.innerHTML = `
     <div class="card h-100 bg-success bg-opacity-25">
                     <img src="${phone.image}" class="card-img-top w-50 m-auto pt-4" alt="...">
                     <div class="card-body p-5">
-                        <h4 class="card-title"> Release Date: ${phone.releaseDate ? phone.releaseDate : 'No Released Date Found'}</h4>
+                    <h3 class="text-center">${phone.name}</h3>
+                        <h4 class="card-title text-center">${phone.releaseDate ? phone.releaseDate : 'No Released Date Found'}</h4>
+                        <h4 class="card-text">Main Features:</h4>
                         <p class="card-text">Chip Set: ${phone.mainFeatures.chipSet}</p>
                         <p class="card-text">Display Size: ${phone.mainFeatures.displaySize}</p>
                         <p class="card-text">Memory: ${phone.mainFeatures.memory}</p>
