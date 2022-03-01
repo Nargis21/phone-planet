@@ -88,6 +88,7 @@ const displayDetails = phone => {
                     </div>
                 </div>
     `
+
     detailsContainer.appendChild(detailsBox);
 
 }
